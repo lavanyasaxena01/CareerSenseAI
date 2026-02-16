@@ -35,7 +35,7 @@ salary_df["job_title"] = salary_df["job_title"].str.strip()
 # ---------------------------
 st.sidebar.title("CareerSense AI")
 menu = st.sidebar.radio(
-    "Navigation","Career Analysis", "Compare Careers", "About"]
+    ["Navigation","Career Analysis", "Compare Careers", "About"]
 )
 
 # ---------------------------
