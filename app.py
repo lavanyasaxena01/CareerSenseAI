@@ -19,9 +19,13 @@ st.set_page_config(page_title="CareerSense AI Pro", layout="wide")
 # ---------------------------
 # GEMINI CONFIG
 # ---------------------------
-GEMINI_API_KEY = st.secrets["GEMINI_API_KEY"]
-genai.configure(api_key=GEMINI_API_KEY)
-model = genai.GenerativeModel("gemini-pro")
+GEMINI_API_KEY = st.secrets.get("GEMINI_API_KEY")
+
+if GEMINI_API_KEY:
+    genai.configure(api_key=GEMINI_API_KEY)
+    model = genai.GenerativeModel("gemini-1.5-flash")
+else:
+    st.error("Gemini API Key not configured.")
 
 # ---------------------------
 # LOAD DATA
